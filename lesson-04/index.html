@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Lesson 04 Starter Template</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <style>
+    /* CSS style rules go here! */
+  </style>
+</head>
+
+<body>
+    
+
+  <script>
+function saySomething(message) {
+    console.log(message);
+}
+
+var message = "Hello Map";
+saySomething(message);
+
+message = "Please enter the address you'd like to search for."
+saySomething(message);
+
+function calcAreaRect(width,height){
+    var area = width * height;
+    console.log(area);
+}
+
+var peanutButter = 40;
+var jelly = 30
+calcAreaRect(peanutButter,jelly);
+
+function calcAreaRect(width,height){
+    var area = width * height;
+    return area;
+}
+
+var calculatedArea = calcAreaRect(40,30);  // <-- the return value is assigned to calculated Area
+console.log(calculatedArea);
+
+function getMultiValues() {
+    var value1 = 5;
+    var value2 = "iguana";
+    return [value1, value2];
+}
+
+var values = getMultiValues();
+console.log(values[0]); // output is 5
+console.log(values[1]); // output is "iguana"
+
+function sayHello (){
+    var greeting = "Hi, I’m a web mapper.";
+    console.log(greeting);
+}
+
+sayHello(); // function call
+console.log(greeting); // throws an error
+
+function sayHello(){
+    var greeting = "Hi, I’m a web mapper."; // variable defined within the function scope
+    console.log(greeting); // output is "Hi, I’m a web mapper"
+}
+
+sayHello();  // output is "Hi, I’m a web mapper"
+
+var greeting = "Howdy, I'm a cartographer"; // variable defined within the global scope
+console.log(greeting); // output is "Howdy, I'm a cartographer"
+
+function sayHello(){
+       console.log(greeting);
+}
+
+// we have three numbers
+var myNums = [1, 2, 3];
+
+// we want to log them to console
+// so we call a function and send them into that function
+logNumsToConsole(myNums);
+
+function logNumsToConsole(nums){
+  // function accepts that array as nums
+
+  //for all of our numbers stored within nums array
+  for(var i=0; i < nums.length; i++){
+    // loop through each, i is a counter for each loop
+
+    // before we log them, we want to double them
+    var doubleNumValue = doubleNum(nums[i]); // i here access each one
+
+    // THE NEXT LINE DOESN'T HAPPEN UNTIL ... the code within doubleNum runs!!!
+
+    // now we log them
+    console.log(doubleNumValue); // output is 2 4 6
+
+  }  // end for loop
+
+}  // end logNumsToConsole
+
+function doubleNum(num){
+
+  // for each number, we double it and return the value
+  return num * 2;
+
+} // end doubleNum
+  </script>
+
+</body>
+
+</html>

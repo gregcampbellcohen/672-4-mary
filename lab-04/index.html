@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<!-- Use the HTML and CSS you developed in module 01 to fill out this template.-->
+
+<head>
+	<meta charset=utf-8 />
+	<title>The Three American Cities I've Lived In</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+	<!-- Check if this is latest version of Leaflet CSS. -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+
+	<!-- Add links to external css stylesheets. -->
+	<link href="#" rel="stylesheet" />
+
+	<style>
+
+body {
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      font-family: 'Lato', sans-serif; /* change made here */
+      font-weight: 300; /* addition here */
+      color: #3d3d3d;
+      font-size: 100%;
+    }
+
+    p {
+     font-size: 1.5em;
+     line-height: 1.5em;
+    }
+
+    a {
+      color: #f77f00;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    header, section, footer {
+      width: 80%;
+      margin: 10px auto;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-weight: 900; /* addition here */
+      letter-spacing: .04em;
+    }
+
+    h2 {  
+      font-size: 2.5em;
+      font-weight: 300; /* addition here */
+      letter-spacing: .04em;
+    }
+
+    #map {
+      width: 100%;
+      height: 540px;
+      margin: 10px auto;
+      border: 2px solid #d3d3d3;
+    }
+
+    .highlight {
+      color: #f05716; 
+      font-weight: bold;
+    }
+
+    .img-fill {
+      width: 100%;
+      height: auto;
+      margin: 10px 0;
+    }
+
+    .first-column {
+      float: left;
+      width: 49%;
+      padding-right: 2%;  
+    }
+
+    .second-column {
+      float: left;
+      width: 49%;
+    }
+
+    .row::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+	hr {
+      margin: 20px 0;
+      border: 0;
+      height: 1px;
+      background: #d3d3d3;
+    }
+
+    .caption {
+      margin: 0 0 20px 0;
+      display: block;
+    }
+
+	.btn {
+    float: left;
+    clear: both;
+    background: url(imgs/button_left.png) no-repeat;
+    padding: 0 0 0 10px;
+    margin: 5px 0;
+	}
+	.btn a{
+    float: left;
+    height: 40px;
+    background: url(imgs/button_middle.png) repeat-x left top;
+    line-height: 40px;
+    padding: 0 10px;
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+	}
+	.btn span {
+    background: url(imgs/button_right.png) no-repeat;
+    float: left;
+    width: 10px;
+    height: 40px;
+	}
+	.btn_gray {background-color: #808080;}
+	.btn_orange { background-color: #f77f00;}
+	.btn_blue {background-color: #0000CD;}
+	.btn_red {background-color: #DC143C;}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Greg's 3 Cities</h1>
+	</header>
+
+	<section>
+		<div class="row">
+		<div id='map'></div>
+	</section>
+	<section>
+    <div class="row">
+		<div class="first-column">
+		<button id='map-cities' class='btn_orange'>Map Cities</button>
+		<h2>Calculating density measures on the fly</h2>
+		<p>For this project, I selected the three cities where I've lived in the United States: Knoxville, Tennessee; Washington, DC; and Albany, New York. I was tempted to do population density using the metropolitan area for each city rather than the city itself, but a glance at the figures I found for Albany and Knoxville showed this metric really pushes the boundaries of what a reasonable person could consider a metropolitan area to be. From limited personal experience, population density seems to correlate with quality of public transportation.</p>
+        <ul>
+        <li>See my projects on GitHub: <a href="https://github.com/gregcampbellcohen">Greg Campbell-Cohen</a>. </li>
+        <li>Follow me on Twitter: <a href="https://twitter.com/gcampbellcohen">@gcampbellcohen</a>. </li>
+        <li>Visit my <a href='https://www.linkedin.com/in/greg-campbell-cohen-96614792/'>LinkedIn</a>. </li>
+        </ul>
+      </div>
+    <div class="second-column">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/97-99_Toyota_Camry.jpg" alt="Tan 1999 Toyota Camry" class="img-fill">
+      <div class="caption">
+      A tan 1999 Toyota Camry, the car I drove to move to and from each of these cities. From <a href="https://upload.wikimedia.org/wikipedia/commons/c/c5/97-99_Toyota_Camry.jpg">Wikimedia Commons.</a>. It met an unceremonious end 10 miles out from the Great Smoky Mountains National Park.
+      </div>
+    </div>
+  </div>
+	</section>
+
+	<footer>
+		<hr>
+		<a href="https://newmapsplus.github.io">
+		  <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-nmp-75px-h-gray.png" alt="University of Kentucky New Maps Plus">
+		  </a>
+	
+	  <a href="https://uky-gis.github.io">
+		  <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-geography-75px-h.png" alt="University of Kentucky Department of Geography">
+	  </a>
+		</hr>
+		</div>
+	  </footer>
+
+	<!-- Check if this is latest version of Leaflet JS. -->
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+	<script>
+		// map options
+		var options = {
+			center: [40.4, -79.9],
+			zoom: 5
+		}
+
+		// creates the Leaflet map
+		var map = L.map('map', options);
+
+		// Get basemap URL from Leaflet Providers
+		var basemap_url = 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'
+
+		// Get basemap attributes from Leaflet Providers
+		var basemap_attributes = {
+			attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+		}
+
+		// requests some map tiles
+		var tiles = L.tileLayer(basemap_url, basemap_attributes);
+
+
+
+		// adds these tiles to the map
+		map.addLayer(tiles);
+
+		var cities = ['Knoxville', 'Washington, D.C', 'Albany']
+		var cityCoords = [
+			[35.9606, -83.9207],
+			[38.9072, -77.0369],
+			[42.6526, -73.7562]
+		]
+		var cityPops = [187500, 705749, 97279]
+		var cityAreas = [104.3, 68.34, 21.94]
+
+        var button = document.getElementById("map-cities");
+
+        button.addEventListener("click", function () {
+
+          //   var units = prompt('Enter the units for calculating population density', 'Enter "miles" or "km"');
+	        // mapCities(units); 
+
+          do {
+                var units = prompt('Enter the units for calculating population density',
+                    'Enter "miles" or "km"');
+                // If the user clicks "cancel" null is passed
+                if (units == null) {
+                    break
+                }
+          }
+          while (units != "miles" && units != "km")
+
+          if (units == null) {
+              alert("You canceled!")
+          } else {
+              // call a function named mapCities,
+              // and send the units variable as an argument
+              mapCities(units);
+          }
+        
+
+        }); 
+
+        function mapCities(units) {
+           for (var i = 0; i < cities.length; i++) {
+                var cityName = cities[i];
+                var cityNumPeeps = cityPops[i];
+                var cityZone = cityAreas[i];
+                var density = calcPopDensity(cityNumPeeps, cityZone, units);
+                console.log(density);
+				var popup = `<b>${cities[i]}</b></br><b>population density</b>: ${density}`;
+      			L.marker(cityCoords[i]).addTo(map)
+        		.bindPopup(popup);
+            }
+
+            };
+
+    	function calcPopDensity(cityNumPeeps, cityZone, units){
+            if (units == "miles") {
+                return `${(cityNumPeeps / cityZone).toFixed(1)} people per sq mi`;
+            } 
+			      else if (units == "km") 
+                return `${(cityNumPeeps / (cityZone * 2.59)).toFixed(1)} people per km<sup>2</sup>`
+        }
+
+        
+	</script>
+
+</body>
+
+</html>
+</script>
